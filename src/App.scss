@@ -2,6 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR&family=Patua+One&family=Roboto:wght@700&display=swap');
+
+// 헤더
+@font-face {
+  font-family: 'NanumSquareB';
+  font-weight: 700;
+  src: url('./assets/font/NanumSquareB.ttf');
+}
+
+// 본문
+@font-face {
+  font-family: 'NanumSquareNeo-bRg';
+  font-weight: 400;
+  src: url('./assets/font/NanumSquareNeo-bRg.ttf');
+}
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 640px) {
+  html {
+    font-size: 16px;
+  }
+}
+
 body {
   margin: 0;
+  background-color: #19202e;
+  font-family: 'NanumSquareNeo-bRg';
+}
+
+.font-header {
+  font-family: 'NanumSquareB' !important;
+}
+.font-content-neo {
+  font-family: 'NanumSquareNeo-bRg';
+}
+.font-babes {
+  font-family: 'Bebas Neue', cursive;
 }

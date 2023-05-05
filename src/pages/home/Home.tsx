@@ -1,27 +1,36 @@
-import {useState} from 'react';
 import tw, {styled, css} from 'twin.macro';
+import {motion} from 'framer-motion';
 
-const ButtonLayout = styled.button<{isActive?: boolean}>(({isActive}) => [
-  tw`py-2 px-10 rounded-xl transition-all`,
+import Page from '~/components/Page';
+import Profile from '~/components/home/Profile';
+import Project from '~/components/home/Project';
+import Contact from '~/components/home/Contact';
+import Company from '~/components/home/Company';
+
+export const SectionWithMotion = styled(motion.section)(() => [
+  tw`bg-[#1e2738] w-full p-4 sm:p-10 mb-10 rounded-lg`,
   css`
-    background-color: ${isActive ? '#020202' : 'rgba(0, 0, 0, 0.05)'};
-    color: ${isActive ? '#fff' : '#030303'};
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    h2 {
+      font-family: 'Roboto', sans-serif;
+      ${tw`text-white text-center text-3xl tracking-wide font-bold`}
+    }
   `,
 ]);
 
+const SectionCommonMotions = {
+  initial: {opacity: 0, transform: 'translateY(50px)'},
+  whileInView: {opacity: 1, transform: 'translateY(0px)'},
+  transition: {duration: 0.4},
+  viewport: {once: false, margin: '-100px'},
+};
+
 export default function Home() {
-  const [isActive, setIsActive] = useState(false);
   return (
-    <div className="text-2xl text-blue-600">
-      Home 페이지에 오신걸 환영합니다.
-      <div className="mt-6 flex justify-center">
-        <ButtonLayout
-          onClick={() => setIsActive(!isActive)}
-          isActive={isActive}>
-          테스트 버튼
-        </ButtonLayout>
-      </div>
-    </div>
+    <Page>
+      <Profile />
+      <Company sectionMotions={SectionCommonMotions} />
+      <Project sectionMotions={SectionCommonMotions} />
+      <Contact sectionMotions={SectionCommonMotions} />
+    </Page>
   );
 }

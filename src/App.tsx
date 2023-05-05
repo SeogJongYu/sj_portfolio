@@ -4,15 +4,14 @@ import {QueryClient, QueryClientProvider} from 'react-query';
 import './App.scss';
 import apiQuery from './api/apiQuery';
 import {ReactNode} from 'react';
-import HomeRoutes from './routes/HomeRoutes';
+import Home from './pages/home/Home';
 
 function App() {
   return (
     <Providers>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Navigate replace to="/home" />} />
-          <Route path="/home/*" element={<HomeRoutes />} />
+          <Route path="/" element={<Home />} />
         </Routes>
       </BrowserRouter>
     </Providers>
