@@ -34,7 +34,7 @@ export default function Profile() {
   };
 
   return (
-    <SectionWithMotion className="mt-28 relative">
+    <SectionWithMotion className="mt-28 relative" id="profile">
       <div className="absolute w-40 h-40 bg-[#1e2738] rounded-full -top-20 left-1/2 transform -translate-x-1/2">
         <motion.div
           initial={{scale: 0}}
@@ -51,7 +51,7 @@ export default function Profile() {
             Web Frontend Developer
           </span>
         </h2>
-        <p className="text-main-gray mt-4 font-content-neo tracking-wide">
+        <p className="text-main-gray mt-4 tracking-wide">
           안녕하세요! 3년차 프론트엔드 개발자 유석종 입니다. 투자추천서비스
           스타트업에서 개발을 시작했고, 모바일, 웹페이지 화면을 개발했습니다.
           <br />

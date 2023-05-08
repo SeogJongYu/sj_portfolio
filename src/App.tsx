@@ -1,9 +1,10 @@
-import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
+import {ReactNode} from 'react';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import {QueryClient, QueryClientProvider} from 'react-query';
 
 import './App.scss';
+
 import apiQuery from './api/apiQuery';
-import {ReactNode} from 'react';
 import Home from './pages/home/Home';
 
 function App() {

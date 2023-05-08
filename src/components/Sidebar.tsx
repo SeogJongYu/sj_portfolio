@@ -27,6 +27,12 @@ const NavLi = styled.li(() => [
   `,
 ]);
 
+function scrollToTarget(target: string) {
+  const element = document.getElementById(target);
+
+  element?.scrollIntoView({behavior: 'smooth'});
+}
+
 export default function Sidebar({isActive}: SidebarProps) {
   return (
     <div
@@ -42,15 +48,21 @@ export default function Sidebar({isActive}: SidebarProps) {
         <ul
           className="px-2 py-4 rounded-xl flex flex-col gap-y-8"
           css={{backgroundColor: 'rgba(0,0,0,0.1)'}}>
-          <NavLi>
+          <NavLi
+            onClick={() =>
+              window.scrollTo({
+                top: 0,
+                behavior: 'smooth',
+              })
+            }>
             <BsFillPersonFill />
-            <span>ABOUT</span>
+            <span>PROFILE</span>
           </NavLi>
-          <NavLi>
+          <NavLi onClick={() => scrollToTarget('company')}>
             <ImOffice className="w-5 h-auto" />
             <span>COMPANY</span>
           </NavLi>
-          <NavLi>
+          <NavLi onClick={() => scrollToTarget('projects')}>
             <GiFilmProjector />
             <span>PROJECTS</span>
           </NavLi>

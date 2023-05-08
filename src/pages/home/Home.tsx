@@ -8,11 +8,11 @@ import Contact from '~/components/home/Contact';
 import Company from '~/components/home/Company';
 
 export const SectionWithMotion = styled(motion.section)(() => [
-  tw`bg-[#1e2738] w-full p-4 sm:p-10 mb-10 rounded-lg`,
+  tw`bg-main-navy-light w-full px-4 py-6 sm:px-6 sm:p-10 mb-10 rounded-lg`,
   css`
     h2 {
       font-family: 'Roboto', sans-serif;
-      ${tw`text-white text-center text-3xl tracking-wide font-bold`}
+      ${tw`mb-6 text-white text-center text-3xl tracking-wide font-bold`}
     }
   `,
 ]);
@@ -21,7 +21,7 @@ const SectionCommonMotions = {
   initial: {opacity: 0, transform: 'translateY(50px)'},
   whileInView: {opacity: 1, transform: 'translateY(0px)'},
   transition: {duration: 0.4},
-  viewport: {once: false, margin: '-100px'},
+  viewport: {once: true, margin: '-100px'},
 };
 
 export default function Home() {

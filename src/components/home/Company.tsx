@@ -1,7 +1,8 @@
 import classNames from 'classnames';
 import {HTMLMotionProps, motion} from 'framer-motion';
-import {useState} from 'react';
+import {useMemo, useState} from 'react';
 import {IoIosArrowBack, IoIosArrowForward} from 'react-icons/io';
+import {HiOutlineCursorClick} from 'react-icons/hi';
 
 import {SectionWithMotion} from '~/pages/home/Home';
 
@@ -12,24 +13,40 @@ interface CompanyProps {
 const COMPANY_MAP = {
   0: {
     companyName: 'Bigtree',
+    title: '투자추천서비스 스타트업 (2020.10 - 2023.03)',
     workList: [
-      '안녕하세요! 3년차 프론트엔드 개발자 유석종 입니다. 투자추천서비스 스타트업에서 개발을 시작했고, 모바일, 웹페이지 화면을 개발했습니다.',
-      'ㄴㄴㄴㄴ',
-      'ㅇㅇㅇㅇ',
+      '웹뷰 앱, 웹서비스 프론트엔드 개발 및 기획, 디자인, 퍼블리싱',
+      'React, Typescript',
     ],
+    url: 'https://www.ibigtree.kr/',
   },
   1: {
-    companyName: 'Teero',
-    workList: ['12321', '2445', '566875'],
+    companyName: 'Travelai',
+    title: '프리랜서 (2023.03 ~ 2023.04)',
+    workList: [
+      '영풍문고 리뉴얼 어드민(주문관리), 쇼핑몰(검색) 프론트 개발',
+      'Vue3, Typescript',
+    ],
+    url: 'https://www.travelai.io/',
   },
   2: {
-    companyName: 'Travelai',
-    workList: ['wqeqwewq', 'asdsad', 'xczxcx'],
+    companyName: 'Teero',
+    title: '서브 프로젝트 (2022.06 ~ 2023.03)',
+    workList: [
+      '소규모 프로젝트 프론트, 백엔드 전체 개발',
+      'React, Typescript, Django',
+    ],
+    url: '',
   },
 };
 
 export default function Company({sectionMotions}: CompanyProps) {
   const [activeComp, setActiveComp] = useState(0);
+
+  const companyInfo = useMemo(
+    () => COMPANY_MAP[activeComp as keyof typeof COMPANY_MAP],
+    [activeComp],
+  );
 
   function handleSlide(type: 'next' | 'prev') {
     const lastIndex = Object.keys(COMPANY_MAP).length - 1;
@@ -42,8 +59,8 @@ export default function Company({sectionMotions}: CompanyProps) {
     }
   }
   return (
-    <SectionWithMotion {...sectionMotions}>
-      <h2 className="mb-10">Company I Worked With</h2>
+    <SectionWithMotion {...sectionMotions} id="company">
+      <h2>Company I Worked With</h2>
       <div className="text-main-gray">
         <ul className="flex justify-center items-center gap-x-4 md:gap-x-10">
           {Object.values(COMPANY_MAP)
@@ -82,36 +99,25 @@ export default function Company({sectionMotions}: CompanyProps) {
           initial={{y: 0, opacity: 0}}
           animate={{y: 0, opacity: 1}}
           transition={{duration: 0.5}}>
-          {COMPANY_MAP[activeComp as keyof typeof COMPANY_MAP].workList.map(
-            work => (
-              <p>{work}</p>
-            ),
+          <h3 className="mb-4 text-white text-center">{companyInfo.title}</h3>
+          {companyInfo.workList.map((work, index) => (
+            <p key={index} className="text-sm mb-1">
+              • {work}
+            </p>
+          ))}
+          {companyInfo?.url && (
+            <div className="float-right mt-1">
+              <a
+                href={companyInfo.url}
+                target="_blank"
+                className="inline-block bg-[#465981] hover:bg-[#4f6591] text-white font-bold text-xs px-5 py-2 rounded-full transition-all"
+                rel="noreferrer">
+                Website
+                <HiOutlineCursorClick className="inline-block text-sm ml-2" />
+              </a>
+            </div>
           )}
         </motion.div>
-        {/* Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt
-        voluptatibus natus corporis magnam nobis! Nemo deleniti dignissimos
-        cupiditate, cumque, possimus expedita optio molestias explicabo
-        molestiae natus enim, ipsam nulla eligendi.
-        <br />
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt
-        voluptatibus natus corporis magnam nobis! Nemo deleniti dignissimos
-        cupiditate, cumque, possimus expedita optio molestias explicabo
-        molestiae natus enim, ipsam nulla eligendi.
-        <br />
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt
-        voluptatibus natus corporis magnam nobis! Nemo deleniti dignissimos
-        cupiditate, cumque, possimus expedita optio molestias explicabo
-        molestiae natus enim, ipsam nulla eligendi.
-        <br />
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt
-        voluptatibus natus corporis magnam nobis! Nemo deleniti dignissimos
-        cupiditate, cumque, possimus expedita optio molestias explicabo
-        molestiae natus enim, ipsam nulla eligendi.
-        <br />
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt
-        voluptatibus natus corporis magnam nobis! Nemo deleniti dignissimos
-        cupiditate, cumque, possimus expedita optio molestias explicabo
-        molestiae natus enim, ipsam nulla eligendi. */}
         <br />
       </div>
     </SectionWithMotion>
