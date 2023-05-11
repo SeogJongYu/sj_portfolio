@@ -50,9 +50,9 @@ export function ModalBody({onClose, className, children}: ModalBodyProps) {
           transition={{duration: 0.2}}>
           <div className={classNames('w-full h-full pt-8 relative', className)}>
             <button
-              className="absolute top-6 right-6 p-1 cursor-pointer z-10"
+              className="absolute top-5 right-5 p-1 cursor-pointer z-10"
               onClick={onClose}>
-              <TiDelete className="text-white text-2xl" />
+              <TiDelete className="text-white text-3xl" />
             </button>
             <div className="min-h-[500px] max-h-[85vh] overflow-y-auto">
               <div className="flex-1">{children}</div>
