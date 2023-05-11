@@ -17,7 +17,7 @@ export default function Project({sectionMotions}: ProjectProps) {
   return (
     <SectionWithMotion {...sectionMotions} id="projects">
       <h2>Projects</h2>
-      <div className="flex flex-col gap-y-4">
+      <div className="flex flex-col gap-y-6">
         {projectInfos.map((projectInfo, index) => (
           <ProjectCard key={index} projectInfo={projectInfo} />
         ))}

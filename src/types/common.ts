@@ -5,21 +5,20 @@ export interface ProjectInfo {
   summary: string;
   stacks: string[];
   thumbnail: string;
-  images: string[];
-  intro: string;
-  intro_list?: string[];
+  images?: string[];
+  intro_summary: string;
+  intros?: string[];
   date_range?: string;
-  position?: string[];
-  language?: string[];
-  styling?: string[];
-  bundler?: string[];
-  distribution?: string[];
-  state_manage?: string[];
-  collaboration_tool?: string[];
-  purpose: string;
-  purpose_list: string[];
-  learing_summary?: string;
-  learning_list?: string[];
+  positions?: string[];
+  languages?: string[];
+  stylings?: string[];
+  bundlers?: string[];
+  distributions?: string[];
+  state_manages?: string[]; // 상태관리 리스트
+  collaboration_tools?: string[]; // 협업툴
+  purposes: string[]; // 목표 리스트
+  learing_summary?: string; // 러닝포인트 요약
+  learnings?: string[]; // 러닝포인트 리스트
   website_link?: string;
-  required_list?: string[];
+  requireds?: string[];
 }

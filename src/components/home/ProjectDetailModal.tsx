@@ -65,44 +65,47 @@ export default function ProjectDetailModal({
             <SwiperSlide>
               <img
                 src={projectInfo.thumbnail}
-                className="rounded mb-4"
+                className="rounded mb-4 w-full h-auto"
                 css={{
                   aspectRatio: '710/450',
                 }}
               />
             </SwiperSlide>
-            {projectInfo.images.map((image, imageIndex) => (
-              <SwiperSlide key={imageIndex}>
-                <img
-                  src={image}
-                  alt="이미지 리스트"
-                  css={{aspectRatio: '710/450'}}
-                />
-              </SwiperSlide>
-            ))}
+            {projectInfo.images &&
+              projectInfo.images.map((image, imageIndex) => (
+                <SwiperSlide key={imageIndex}>
+                  <img
+                    src={image}
+                    alt="이미지 리스트"
+                    css={{aspectRatio: '710/450'}}
+                  />
+                </SwiperSlide>
+              ))}
             <div className="custom-pagination flex justify-center" />
           </Swiper>
-          <button
-            className="absolute right-0 text-lg bottom-[-6px] p-0.5 z-10"
-            onClick={() => {
-              if (activeLoop) {
-                setActiveLoop(false);
-                swiperRef.current?.swiper.autoplay.stop();
-              }
-              if (!activeLoop) {
-                setActiveLoop(true);
-                swiperRef.current?.swiper.autoplay.start();
-              }
-            }}>
-            {activeLoop && <IoMdPause className="text-gray-400" />}
-            {!activeLoop && <IoMdPlay className="text-gray-400" />}
-          </button>
+          {projectInfo.images && (
+            <button
+              className="absolute right-0 text-lg bottom-[-6px] p-0.5 z-10"
+              onClick={() => {
+                if (activeLoop) {
+                  setActiveLoop(false);
+                  swiperRef.current?.swiper.autoplay.stop();
+                }
+                if (!activeLoop) {
+                  setActiveLoop(true);
+                  swiperRef.current?.swiper.autoplay.start();
+                }
+              }}>
+              {activeLoop && <IoMdPause className="text-gray-400" />}
+              {!activeLoop && <IoMdPlay className="text-gray-400" />}
+            </button>
+          )}
         </div>
         <div className="text-main-gray text-sm whitespace-pre-line mb-8">
-          <p className="mb-4">{projectInfo.intro}</p>
+          <p className="mb-4">{projectInfo.intro_summary}</p>
           <CommonUl>
-            {projectInfo.intro_list?.map((introItem, index) => (
-              <li key={index}>{introItem}</li>
+            {projectInfo.intros?.map((intro, index) => (
+              <li key={index}>{intro}</li>
             ))}
           </CommonUl>
         </div>
@@ -114,64 +117,64 @@ export default function ProjectDetailModal({
                 <span>{projectInfo.date_range}</span>
               </li>
             )}
-            {projectInfo?.position && (
+            {projectInfo?.positions && (
               <li>
                 <h4>역할</h4>
-                <span>{projectInfo.position.join(', ')}</span>
+                <span>{projectInfo.positions.join(', ')}</span>
               </li>
             )}
-            {projectInfo?.language && (
+            {projectInfo?.languages && (
               <li>
                 <h4>언어</h4>
-                <span>{projectInfo.language.join(', ')}</span>
+                <span>{projectInfo.languages.join(', ')}</span>
               </li>
             )}
-            {projectInfo?.styling && (
+            {projectInfo?.stylings && (
               <li>
                 <h4>스타일링</h4>
-                <span>{projectInfo.styling.join(', ')}</span>
+                <span>{projectInfo.stylings.join(', ')}</span>
               </li>
             )}
-            {projectInfo?.state_manage && (
+            {projectInfo?.state_manages && (
               <li>
                 <h4>상태관리</h4>
-                <span>{projectInfo.state_manage.join(', ')}</span>
+                <span>{projectInfo.state_manages.join(', ')}</span>
               </li>
             )}
-            {projectInfo?.bundler && (
+            {projectInfo?.bundlers && (
               <li>
                 <h4>번들러</h4>
-                <span>{projectInfo.bundler.join(', ')}</span>
+                <span>{projectInfo.bundlers.join(', ')}</span>
               </li>
             )}
-            {projectInfo?.distribution && (
+            {projectInfo?.distributions && (
               <li>
                 <h4>배포</h4>
-                <span>{projectInfo.distribution.join(', ')}</span>
+                <span>{projectInfo.distributions.join(', ')}</span>
               </li>
             )}
-            {projectInfo?.collaboration_tool && (
+            {projectInfo?.collaboration_tools && (
               <li>
                 <h4>협업툴</h4>
-                <span>{projectInfo.collaboration_tool.join(', ')}</span>
+                <span>{projectInfo.collaboration_tools.join(', ')}</span>
               </li>
             )}
           </ProjectDetailUl>
         </ProjectSection>
         <ProjectSection title="목표">
           <CommonUl>
-            {projectInfo.purpose_list.map((purpose, index) => (
+            {projectInfo.purposes.map((purpose, index) => (
               <li key={index}>{purpose}</li>
             ))}
           </CommonUl>
         </ProjectSection>
-        {projectInfo?.learing_summary && projectInfo?.learning_list && (
+        {projectInfo?.learing_summary && projectInfo?.learnings && (
           <ProjectSection title="러닝포인트">
             <div className="text-sm whitespace-pre-line mb-4">
               {projectInfo.learing_summary}
             </div>
             <CommonUl>
-              {projectInfo.learning_list.map((learing, index) => (
+              {projectInfo.learnings.map((learing, index) => (
                 <li key={index}>{learing}</li>
               ))}
             </CommonUl>
@@ -186,10 +189,10 @@ export default function ProjectDetailModal({
               rel="noreferrer">
               페이지 보기
             </a>
-            {projectInfo?.required_list && (
+            {projectInfo?.requireds && (
               <CommonUl className="mt-4">
-                {projectInfo.required_list.map((requiredItem, index) => (
-                  <li key={index}>{requiredItem}</li>
+                {projectInfo.requireds.map((required, index) => (
+                  <li key={index}>{required}</li>
                 ))}
               </CommonUl>
             )}
