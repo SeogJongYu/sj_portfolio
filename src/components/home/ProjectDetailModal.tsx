@@ -129,6 +129,18 @@ export default function ProjectDetailModal({
                 <span>{projectInfo.languages.join(', ')}</span>
               </li>
             )}
+            {projectInfo?.front_stacks && (
+              <li>
+                <h4>프론트 스택</h4>
+                <span>{projectInfo.front_stacks.join(', ')}</span>
+              </li>
+            )}
+            {projectInfo?.back_stacks && (
+              <li>
+                <h4>백 스택</h4>
+                <span>{projectInfo.back_stacks.join(', ')}</span>
+              </li>
+            )}
             {projectInfo?.stylings && (
               <li>
                 <h4>스타일링</h4>
@@ -145,6 +157,12 @@ export default function ProjectDetailModal({
               <li>
                 <h4>번들러</h4>
                 <span>{projectInfo.bundlers.join(', ')}</span>
+              </li>
+            )}
+            {projectInfo?.dbs && (
+              <li>
+                <h4>DB</h4>
+                <span>{projectInfo.dbs.join(', ')}</span>
               </li>
             )}
             {projectInfo?.distributions && (

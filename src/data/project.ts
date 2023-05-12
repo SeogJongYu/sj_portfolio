@@ -5,6 +5,13 @@ import Sommelier3 from '~/assets/image/projects/sommelier_3.png';
 import Sommelier4 from '~/assets/image/projects/sommelier_4.png';
 import Sommelier5 from '~/assets/image/projects/sommelier_5.png';
 import Ypbooks0 from '~/assets/image/projects/ypbooks_0.png';
+import Mediwriter0 from '~/assets/image/projects/mediwriter_0.png';
+import Mediwriter1 from '~/assets/image/projects/mediwriter_1.png';
+import Mediwriter2 from '~/assets/image/projects/mediwriter_2.png';
+import Mediwriter3 from '~/assets/image/projects/mediwriter_3.png';
+import Mediwriter4 from '~/assets/image/projects/mediwriter_4.png';
+import Mediwriter5 from '~/assets/image/projects/mediwriter_5.png';
+import Mediwriter6 from '~/assets/image/projects/mediwriter_6.png';
 import {ProjectInfo} from '~/types/common';
 
 export const projectInfos: ProjectInfo[] = [
@@ -28,12 +35,12 @@ export const projectInfos: ProjectInfo[] = [
     ],
     date_range: '2023.01 ~ 2023.04',
     positions: ['프론트엔드', '퍼블리싱', '배포'],
-    languages: ['React', 'Typescript'],
+    front_stacks: ['React', 'Typescript'],
     stylings: ['Tailwindcss', 'Emotion', 'twin.macro'],
     state_manages: ['React-Query', 'Recoil'],
     bundlers: ['Webpack'],
     distributions: ['EC2', 'Nginx'],
-    collaboration_tools: ['Notion'],
+    collaboration_tools: ['Figma', 'Notion'],
     purposes: [
       '음료의 필터 컴포넌트 유지보수 가능하고 가독성 좋은 구조 고민',
       'react-hook-form 라이브러리 적용',
@@ -71,7 +78,8 @@ export const projectInfos: ProjectInfo[] = [
     ],
     date_range: '2022.06 ~ 2022.12 / 2023.03 ~ 2023.04',
     positions: ['프론트엔드'],
-    languages: ['Vue3', 'Typescript'],
+    front_stacks: ['Vue3', 'Typescript'],
+    stylings: ['Tailwindcss'],
     state_manages: ['Vuex'],
     bundlers: ['Vite'],
     collaboration_tools: ['Notion', 'Slack'],
@@ -89,6 +97,53 @@ export const projectInfos: ProjectInfo[] = [
       'Typescript와 친화적이지 않았다. 잦은 이유없는 타입오류와 sfc 파일에서 타입을 export 할 수 없는 점, Vuex에서의 호환성이 좋지 않았다.',
       '생태계가 좁아서 선택할 수 있는 라이브러리가 별로 없다.',
       'Vite의 개발 서버 구동시간이 굉장히 빨랐다.(Webpack과 비교 불가할 정도로..)',
+    ],
+  },
+  {
+    id: 3,
+    title: '임상시험문서 실시간 편집 서비스',
+    project_name: 'Mediwriter',
+    summary: '임상시험문서를 유저가 동시에 편집 할 수 있는 서비스',
+    stacks: ['React', 'Typescript', 'Django'],
+    thumbnail: Mediwriter0,
+    images: [
+      Mediwriter1,
+      Mediwriter2,
+      Mediwriter3,
+      Mediwriter4,
+      Mediwriter5,
+      Mediwriter6,
+    ],
+    intro_summary:
+      '로그인한 유저 2명이 동시에 실시간으로 임상시험 문서를 등록, 편집, 삭제 할 수 있습니다.\n실시간 편집 서비스는 에디터에서 제공하는 websocket 서버를 이용했습니다.',
+    intros: [
+      '문서를 작성하며 다른 임상시험문서와 용어 검색 가능',
+      '문서 작성 중 코멘트 작성',
+      '문서 편집 히스토리 보기',
+      '어드민 페이지에서 모든 문서, 유저 관리 가능',
+    ],
+    date_range: '2022.09 ~ 2022.12',
+    positions: ['프론트엔드', '백엔드', '퍼블리싱', 'DB설계', '배포'],
+    front_stacks: ['React', 'Typescript'],
+    back_stacks: ['Django', 'Python', 'Django-Ninja'],
+    state_manages: ['React-Query'],
+    bundlers: ['Webpack'],
+    distributions: ['EC2', 'Nginx'],
+    collaboration_tools: ['Figma', 'Notion'],
+    dbs: ['PostgreSQL'],
+    purposes: [
+      'Django를 이용하여 백엔드 서비스 개발',
+      'AWS RDS, EC2 서비스 사용 및 경험',
+      'CKEditor 에디터 라이브러리에서 제공하는 실시간 협업편집서비스 적용',
+    ],
+    learing_summary:
+      '서버개발을 하며 Webserver, Web Application Server에 대해 온전히 이해하게 되었습니다.\n또한 프로젝트를 직접 배포해보며 실제 서비스를 클라우드 서비스를 통해 운영해 볼 수 있었던 프로젝트 였습니다.',
+    learnings: [
+      'ORM을 이용하여 데이터베이스에 접근하고, 원하는 형태로 가공하여 api를 만들 수 있었다.',
+      '웹서버와 파이썬 프레임워크 사이에서 통신하기 위해서 미들웨어가 필요하다는 것을 알았고, WSGI로 Gunicorn을 사용했습니다.',
+      '빠르게 API를 만들기 위해 django-ninja 프레임워크를 사용했는데, 후에 django-rest-framework를 사용하여 좀 더 깔끔한 rest api 서비스를 만들어 볼 예정입니다.',
+      '양방향 통신을 하는 WebSocket을 이용한다면 실시간 서비스를 만들 수 있다는 것을 알았다.',
+      'Django에서 기본으로 제공하는 서비스가 편리했다. (유저, 인증, 어드민 등)',
     ],
   },
 ];
