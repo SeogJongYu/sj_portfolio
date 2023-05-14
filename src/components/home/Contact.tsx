@@ -11,7 +11,7 @@ export default function Contact({sectionMotions}: ContactProps) {
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
   return (
-    <SectionWithMotion {...sectionMotions}>
+    <SectionWithMotion {...sectionMotions} id="contact">
       <h2>Contact</h2>
       <div className="text-main-gray">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt

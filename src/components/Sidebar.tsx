@@ -2,13 +2,8 @@ import classNames from 'classnames';
 import tw, {styled, css} from 'twin.macro';
 import {BsFillPersonFill} from 'react-icons/bs';
 import {GiFilmProjector} from 'react-icons/gi';
-import {CgFileDocument} from 'react-icons/cg';
 import {BiPhoneCall} from 'react-icons/bi';
 import {ImOffice} from 'react-icons/im';
-
-interface SidebarProps {
-  isActive: boolean;
-}
 
 const NavLi = styled.li(() => [
   tw`text-main-gray hover:text-white flex flex-col items-center cursor-pointer transition duration-150`,
@@ -17,7 +12,7 @@ const NavLi = styled.li(() => [
       ${tw`text-main-gray text-2xl transition duration-150`}
     }
     span {
-      ${tw`text-xs mt-1`}
+      ${tw`text-xs mt-1.5`}
     }
     &:hover {
       svg {
@@ -33,21 +28,14 @@ function scrollToTarget(target: string) {
   element?.scrollIntoView({behavior: 'smooth'});
 }
 
-export default function Sidebar({isActive}: SidebarProps) {
+export default function Sidebar() {
   return (
     <div
-      // style={{transition: '0.2s all'}}
       className={classNames(
-        'fixed top-1/2 transform -translate-y-1/2 bg-main-navy transition-all ease-in-out duration-300',
-        {
-          'left-4': isActive,
-          '-left-24': !isActive,
-        },
+        'fixed bottom-0 left-0 w-full h-auto border-t border-main-orange md:top-1/2 md:left-4 md:w-auto md:h-full md:border-none transform md:-translate-y-1/2 bg-main-navy z-10 transition-all ease-in-out duration-300',
       )}>
-      <nav>
-        <ul
-          className="px-2 py-4 rounded-xl flex flex-col gap-y-8"
-          css={{backgroundColor: 'rgba(0,0,0,0.1)'}}>
+      <nav className="block h-auto md:flex md:h-full md:items-center">
+        <ul className="px-2 py-4 rounded-xl flex flex-row md:flex-col justify-around md:justify-start items-center md:gap-y-8">
           <NavLi
             onClick={() =>
               window.scrollTo({
@@ -59,18 +47,14 @@ export default function Sidebar({isActive}: SidebarProps) {
             <span>PROFILE</span>
           </NavLi>
           <NavLi onClick={() => scrollToTarget('company')}>
-            <ImOffice className="w-5 h-auto" />
+            <ImOffice className="" />
             <span>COMPANY</span>
           </NavLi>
           <NavLi onClick={() => scrollToTarget('projects')}>
             <GiFilmProjector />
             <span>PROJECTS</span>
           </NavLi>
-          <NavLi>
-            <CgFileDocument />
-            <span>RESUME</span>
-          </NavLi>
-          <NavLi>
+          <NavLi onClick={() => scrollToTarget('contact')}>
             <BiPhoneCall />
             <span>CONTACT</span>
           </NavLi>

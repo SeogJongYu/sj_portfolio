@@ -1,4 +1,3 @@
-import {RxHamburgerMenu} from 'react-icons/rx';
 import {
   AiFillGithub,
   AiOutlineLinkedin,
@@ -24,34 +23,32 @@ const SocialIconLi = styled.li(() => [
   `,
 ]);
 
-interface HeaderProps {
-  onMenuClick(): void;
-}
-
-export default function Header({onMenuClick}: HeaderProps) {
+export default function Header() {
   return (
     <header className="pt-4 mb-4">
-      <div className="w-full h-full flex justify-center relative">
-        <div
-          className="absolute left-0 top-1/2 transform -translate-y-1/2 cursor-pointer"
-          onClick={onMenuClick}>
-          <RxHamburgerMenu className="text-white text-2xl" />
-        </div>
+      <div className="w-full h-full flex justify-center">
         <ul className="flex gap-x-4">
           <SocialIconLi>
-            <a href="https://github.com/SeogJongYu" target="_blank">
+            <a
+              href="https://github.com/SeogJongYu"
+              target="_blank"
+              rel="noreferrer">
               <AiFillGithub />
             </a>
           </SocialIconLi>
           <SocialIconLi>
             <a
               href="https://linkedin.com/in/seogjong-yu-37510b206/"
-              target="_blank">
+              target="_blank"
+              rel="noreferrer">
               <AiOutlineLinkedin />
             </a>
           </SocialIconLi>
           <SocialIconLi>
-            <a href="https://https://www.instagram.com/mni_sj/" target="_blank">
+            <a
+              href="https://https://www.instagram.com/mni_sj/"
+              target="_blank"
+              rel="noreferrer">
               <AiOutlineInstagram />
             </a>
           </SocialIconLi>
