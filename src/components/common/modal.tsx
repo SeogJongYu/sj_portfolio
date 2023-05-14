@@ -18,7 +18,7 @@ export const ModalLayer = styled(motion.div)(() => [
   tw`w-full md:w-3/4 md:max-w-[815px] bg-main-navy-light absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg`,
   css`
     box-shadow: 0px 7px 18px rgba(0, 0, 0, 0.2);
-    max-width: 80vw;
+    max-width: 90vw;
   `,
 ]);
 
