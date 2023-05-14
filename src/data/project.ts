@@ -17,6 +17,7 @@ import Investpick1 from '~/assets/image/projects/investpick_1.jpg';
 import Investpick2 from '~/assets/image/projects/investpick_2.jpg';
 import Investpick3 from '~/assets/image/projects/investpick_3.jpg';
 import Investpick4 from '~/assets/image/projects/investpick_4.jpg';
+import Expert0 from '~/assets/image/projects/expert_0.png';
 import {ProjectInfo} from '~/types/common';
 
 export const projectInfos: ProjectInfo[] = [
@@ -85,7 +86,6 @@ export const projectInfos: ProjectInfo[] = [
     date_range: '2022.06 ~ 2022.12 / 2023.03 ~ 2023.04',
     positions: ['프론트엔드'],
     front_stacks: ['Vue3', 'Typescript'],
-    stylings: ['Tailwindcss'],
     state_manages: ['Vuex'],
     bundlers: ['Vite'],
     collaboration_tools: ['Notion', 'Slack'],
@@ -156,11 +156,47 @@ export const projectInfos: ProjectInfo[] = [
     website_link: 'https://www.mediwriter.co.kr',
     requireds: [
       '로그인이 필요한 서비스 입니다.',
-      '에디터는 사용기간 만료로 사용 할 수 없습니다.',
+      '에디터는 현재 사용 할 수 없습니다.',
     ],
   },
   {
     id: 4,
+    type: 'desktop',
+    title: '투자추천서비스 전문가용',
+    project_name: 'Investpick Expert',
+    summary:
+      '미국 주식시장 흐름을 분석하여 ETF 상품을 선별해 추천해 주는 기업용 서비스',
+    stacks: ['React', 'Typescript'],
+    stylings: ['Tailwindcss'],
+    thumbnail: Expert0,
+    intro_summary:
+      '로보어드바이저가 선별한 미국 투자 상품을 선별하여 추천하는 서비스입니다.',
+    intros: [
+      '주식시장의 흐름과 섹터, 업종별 ETF 상품 분석 및 선별',
+      '원하는 상품을 각각 선택 후 시각화 형태로 비교',
+    ],
+    date_range: '2022.01 ~ 2022.03',
+    positions: ['프론트엔드', '퍼블리싱', '디자인', 'API 데이터 설계'],
+    front_stacks: ['React', 'Typescript'],
+    state_manages: ['React-Query', 'Recoil'],
+    collaboration_tools: ['MS Teams'],
+    purposes: [
+      '실무 코드 학습 및 업무능률 향상',
+      '유지 보수 용이한 컴포넌트 구조 고민',
+      '에러 대처 능력 향상',
+    ],
+    learing_summary:
+      '처음 입사하여 진행한 프로젝트로, 프론트엔드 개발의 모든 것을 배우고 적용해 볼 수 있는 프로젝트였습니다.',
+    learnings: [
+      '컴포넌트 내부에 로직을 추가하면 확장성이 떨어지는 컴포넌트가 된다. (컴포넌트는 데이터를 보여주는 용도로만 쓰자)',
+      '모바일 어플리케이션은 Webview로 브라우저를 띄워서 보여 줄 수 있고 앱스토어 업데이트 대응에 용이하다.',
+      '차트 라이브러리(Echarts)를 이용하여 line, pie, scatter, treemap 등 다양한 차트를 개발했다.',
+      '렌더링 최적화를 하지 않는다면 매끈한 화면(특히 차트)을 보여줄 수 없다',
+      'Android환경과 IOS환경이 달라서, 항상 둘 다 테스트를 해야 한다.',
+    ],
+  },
+  {
+    id: 5,
     type: 'mobile',
     title: '투자추천서비스',
     project_name: '투자콕',

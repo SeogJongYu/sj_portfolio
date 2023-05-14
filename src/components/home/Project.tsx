@@ -51,6 +51,9 @@ function ProjectCard({projectInfo}: {projectInfo: ProjectInfo}) {
               'w-1/2 mx-auto': projectInfo.type === 'mobile',
               'w-full': projectInfo.type === 'desktop',
             })}
+            css={{
+              aspectRatio: projectInfo.type === 'desktop' ? '250/160' : 'auto',
+            }}
             alt="프로젝트 썸네일"
           />
         </div>
