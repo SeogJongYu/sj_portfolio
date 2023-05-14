@@ -1,9 +1,10 @@
-import {useRef, useState} from 'react';
+import {useMemo, useRef, useState} from 'react';
 import {IoMdPause, IoMdPlay} from 'react-icons/io';
-import {Navigation, Pagination, Autoplay} from 'swiper';
-import {Swiper, SwiperRef, SwiperSlide} from 'swiper/react';
 import classNames from 'classnames';
 import tw, {styled, css} from 'twin.macro';
+import {Navigation, Pagination, Autoplay} from 'swiper';
+import type {SwiperOptions} from 'swiper';
+import {Swiper, SwiperRef, SwiperSlide} from 'swiper/react';
 
 import {ProjectInfo} from '~/types/common';
 
@@ -44,6 +45,29 @@ export default function ProjectDetailModal({
 }: ProjectDetailModal) {
   const [activeLoop, setActiveLoop] = useState(true);
   const swiperRef = useRef<SwiperRef | null>(null);
+
+  const imageList = useMemo(() => {
+    const results = [];
+    results.push(projectInfo.thumbnail);
+    projectInfo.images && results.push(...projectInfo.images);
+    return results;
+  }, [projectInfo.images, projectInfo.thumbnail]);
+
+  const breakPoints = useMemo(() => {
+    let results: SwiperOptions['breakpoints'];
+    const isMobile = projectInfo.type === 'mobile';
+
+    if (isMobile) {
+      results = {
+        1024: {
+          slidesPerView: 2,
+        },
+      };
+    }
+
+    return results;
+  }, [projectInfo.type]);
+
   return (
     <ModalBody onClose={onClose}>
       <div className="px-4 md:px-12">
@@ -55,6 +79,7 @@ export default function ProjectDetailModal({
             ref={swiperRef}
             modules={[Navigation, Pagination, Autoplay]}
             slidesPerView={1}
+            breakpoints={breakPoints}
             navigation
             pagination={{
               clickable: true,
@@ -62,25 +87,23 @@ export default function ProjectDetailModal({
             }}
             autoplay={{delay: 5000}}
             loop={true}>
-            <SwiperSlide>
-              <img
-                src={projectInfo.thumbnail}
-                className="rounded mb-4 w-full h-auto"
-                css={{
-                  aspectRatio: '710/450',
-                }}
-              />
-            </SwiperSlide>
-            {projectInfo.images &&
-              projectInfo.images.map((image, imageIndex) => (
-                <SwiperSlide key={imageIndex}>
-                  <img
-                    src={image}
-                    alt="이미지 리스트"
-                    css={{aspectRatio: '710/450'}}
-                  />
-                </SwiperSlide>
-              ))}
+            {imageList.map((image, imageIndex) => (
+              <SwiperSlide key={imageIndex}>
+                <img
+                  src={image}
+                  className={classNames('rounded mb-4 w-full h-auto', {
+                    'w-full h-auto': projectInfo.type === 'desktop',
+                    'w-auto h-[50vh] lg:h-[60vh] mx-auto':
+                      projectInfo.type === 'mobile',
+                  })}
+                  alt="이미지 리스트"
+                  css={{
+                    aspectRatio:
+                      projectInfo.type === 'desktop' ? '710/450' : 'auto',
+                  }}
+                />
+              </SwiperSlide>
+            ))}
             <div className="custom-pagination flex justify-center" />
           </Swiper>
           {projectInfo.images && (

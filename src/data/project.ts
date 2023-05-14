@@ -12,11 +12,17 @@ import Mediwriter3 from '~/assets/image/projects/mediwriter_3.png';
 import Mediwriter4 from '~/assets/image/projects/mediwriter_4.png';
 import Mediwriter5 from '~/assets/image/projects/mediwriter_5.png';
 import Mediwriter6 from '~/assets/image/projects/mediwriter_6.png';
+import Investpick0 from '~/assets/image/projects/investpick_0.jpg';
+import Investpick1 from '~/assets/image/projects/investpick_1.jpg';
+import Investpick2 from '~/assets/image/projects/investpick_2.jpg';
+import Investpick3 from '~/assets/image/projects/investpick_3.jpg';
+import Investpick4 from '~/assets/image/projects/investpick_4.jpg';
 import {ProjectInfo} from '~/types/common';
 
 export const projectInfos: ProjectInfo[] = [
   {
     id: 1,
+    type: 'desktop',
     title: '주류 검색 및 추천 서비스',
     project_name: 'AI 소믈리에',
     summary:
@@ -25,7 +31,7 @@ export const projectInfos: ProjectInfo[] = [
     thumbnail: Sommelier0,
     images: [Sommelier1, Sommelier4, Sommelier5, Sommelier2, Sommelier3],
     intro_summary:
-      '사용자가 찜한 음료와 비슷한 취향의 음료를 알고리즘을 통해 추천해주는 서비스 입니다. 내장된 기능은 다음과 같습니다.',
+      '사용자가 찜한 음료와 비슷한 취향의 음료를 알고리즘을 통해 추천해 주는 서비스입니다. 내장된 기능은 다음과 같습니다.',
     intros: [
       '각 음료별 3,000개 이상의 데이터를 통해 다양한 음료를 필터 통해 검색',
       '음료의 상세 정보 검색',
@@ -48,22 +54,22 @@ export const projectInfos: ProjectInfo[] = [
       'SNS 로그인 구현',
     ],
     learing_summary:
-      '비제어 컴포넌트로 렌더링 최적화가 어떻게 이루어지는지와 스타일링을 좀 더 간결하고 유지보수하기 좋은 구조를 만들고자 했습니다.\n또한 지금까지 프론트엔드 세팅은 기존 만들어져있던 템플릿을 사용했는데, 프로젝트 자체도 직접 세팅해보며 웹팩의 상세 설정에 대해 알아보았습니다.',
+      '비제어 컴포넌트로 렌더링 최적화가 어떻게 이루어지는지와 스타일링을 좀 더 간결하고 유지 보수하기 좋은 구조를 만들고자 했습니다.\n또한 지금까지 프론트엔드 세팅은 기존 만들어져있던 템플릿을 사용했는데, 프로젝트 자체도 직접 세팅해 보며 웹팩의 상세 설정에 대해 알아보았습니다.',
     learnings: [
-      'react-hook-form의 상태값은 실시간으로 업데이트 되지 않고, submit시 최신 상태값을 받아온다.',
-      '프로젝트에서 필터는 상태값에 따라 UI가 바뀌고 데이터를 fetch해야 하므로 렌더링 최적화를 한다는것은 잘못된 방향이었다.',
-      'FormProvider 안에서 useFormContext를 사용하여 별도의 컴포넌트를 제작하여 필터를 분리시키면 prop drilling 할 필요 없이 간결하게 컴포넌트화 할 수 있다.',
-      '모든게 완벽했던 tailwindcss에서 한가지 아쉬웠던 점은 변수할당을 할 수 없었던 점인데, twin.macro를 이용해 emotion과 조합하여 변수할당 가능한 tailwindcss 컴포넌트를 제작할 수 있었다.',
-      '카카오, 구글 API + 라이브러리를 이용하여 유저 인증 로그인을 구현했는데, 다음엔 라이브러리를 사용하지 않고 직접 구현 예정',
+      'react-hook-form의 상태 값은 실시간으로 업데이트되지 않고, submit시 최신 상태 값을 받아온다.',
+      'FormProvider 안에서 useFormContext를 사용하여 별도의 컴포넌트를 제작하여 필터를 분리시키면 prop drilling 할 필요 없이 간결하게 컴포넌트화할 수 있다.',
+      '모든 게 완벽했던 tailwindcss에서 한 가지 아쉬웠던 점은 변수 할당을 할 수 없었던 점인데, twin.macro를 이용해 emotion과 조합하여 변수 할당 가능한 tailwindcss 컴포넌트를 제작할 수 있었다.',
+      '카카오, 구글 API + 라이브러리를 이용하여 유저 인증 로그인을 구현했는데, 다음엔 라이브러리를 사용하지 않고 직접 구현해 보고 싶다.',
     ],
     website_link: 'https://aisommelier.co.kr',
     requireds: [
       '로그인이 필요한 서비스 입니다.',
-      '만약 가입을 한다면 구글을 추천합니다. (카카오는 이메일 수집에 체크해야 사용가능합니다.)',
+      '만약 가입을 한다면 구글을 추천합니다. (카카오는 이메일 수집에 체크해야 사용 가능합니다.)',
     ],
   },
   {
     id: 2,
+    type: 'desktop',
     title: '쇼핑몰 차세대 프로젝트',
     project_name: '영풍문고 리뉴얼',
     summary: '영풍문고의 신규 쇼핑몰, 어드민 페이지 프론트 개발',
@@ -92,18 +98,19 @@ export const projectInfos: ProjectInfo[] = [
     learnings: [
       'Vue는 컴포넌트의 종속성이 자동으로 추적되어 렌더링 최적화에 React만큼 주의하지 않아도 되어 개발의 피로도가 덜하다.',
       '문법구조가 단순하고 단일화되어 있어서, 가독성 좋은 코드가 생성되고 개발 속도가 빨랐다. modelValue는 리액트 개발 시 그리운 점 중 하나다.',
-      'vue-router에서 컴포넌트마다 path가 아닌 이름을 지정하여 라우팅이 가능하다. 가독성이 좋았고, 개발 도중이나 후에 path가 변경될 때 유지보수하기 좋을거 같다는 생각을 했다.',
+      'vue-router에서 컴포넌트마다 path가 아닌 이름을 지정하여 라우팅이 가능하다. 가독성이 좋았고, 개발 도중이나 후에 path가 변경될 때 유지 보수하기 좋을 거 같다는 생각을 했다.',
       '파일당 하나의 컴포넌트만 생성 가능하여(SFC), 추가되는 컴포넌트 파일이 리액트에 비해 많았다.',
-      'Typescript와 친화적이지 않았다. 잦은 이유없는 타입오류와 sfc 파일에서 타입을 export 할 수 없는 점, Vuex에서의 호환성이 좋지 않았다.',
+      'Typescript와 친화적이지 않았다. 잦은 이유 없는 타입 오류와 sfc 파일에서 타입을 export 할 수 없는 점, Vuex에서의 호환성이 좋지 않았다.',
       '생태계가 좁아서 선택할 수 있는 라이브러리가 별로 없다.',
       'Vite의 개발 서버 구동시간이 굉장히 빨랐다.(Webpack과 비교 불가할 정도로..)',
     ],
   },
   {
     id: 3,
-    title: '임상시험문서 실시간 편집 서비스',
+    type: 'desktop',
+    title: '임상시험 문서 실시간 편집 서비스',
     project_name: 'Mediwriter',
-    summary: '임상시험문서를 유저가 동시에 편집 할 수 있는 서비스',
+    summary: '임상시험 문서를 유저가 동시에 편집할 수 있는 서비스',
     stacks: ['React', 'Typescript', 'Django'],
     thumbnail: Mediwriter0,
     images: [
@@ -115,9 +122,9 @@ export const projectInfos: ProjectInfo[] = [
       Mediwriter6,
     ],
     intro_summary:
-      '로그인한 유저 2명이 동시에 실시간으로 임상시험 문서를 등록, 편집, 삭제 할 수 있습니다.\n실시간 편집 서비스는 에디터에서 제공하는 websocket 서버를 이용했습니다.',
+      '로그인한 유저 2명이 동시에 실시간으로 임상시험 문서를 등록, 편집, 삭제할 수 있습니다.\n실시간 편집 서비스는 에디터에서 제공하는 websocket 서버를 이용했습니다.',
     intros: [
-      '문서를 작성하며 다른 임상시험문서와 용어 검색 가능',
+      '문서를 작성하며 다른 임상시험 문서와 용어 검색 가능',
       '문서 작성 중 코멘트 작성',
       '문서 편집 히스토리 보기',
       '어드민 페이지에서 모든 문서, 유저 관리 가능',
@@ -126,6 +133,7 @@ export const projectInfos: ProjectInfo[] = [
     positions: ['프론트엔드', '백엔드', '퍼블리싱', 'DB설계', '배포'],
     front_stacks: ['React', 'Typescript'],
     back_stacks: ['Django', 'Python', 'Django-Ninja'],
+    stylings: ['Tailwindcss'],
     state_manages: ['React-Query'],
     bundlers: ['Webpack'],
     distributions: ['EC2', 'Nginx'],
@@ -140,10 +148,54 @@ export const projectInfos: ProjectInfo[] = [
       '서버개발을 하며 Webserver, Web Application Server에 대해 온전히 이해하게 되었습니다.\n또한 프로젝트를 직접 배포해보며 실제 서비스를 클라우드 서비스를 통해 운영해 볼 수 있었던 프로젝트 였습니다.',
     learnings: [
       'ORM을 이용하여 데이터베이스에 접근하고, 원하는 형태로 가공하여 api를 만들 수 있었다.',
-      '웹서버와 파이썬 프레임워크 사이에서 통신하기 위해서 미들웨어가 필요하다는 것을 알았고, WSGI로 Gunicorn을 사용했습니다.',
-      '빠르게 API를 만들기 위해 django-ninja 프레임워크를 사용했는데, 후에 django-rest-framework를 사용하여 좀 더 깔끔한 rest api 서비스를 만들어 볼 예정입니다.',
-      '양방향 통신을 하는 WebSocket을 이용한다면 실시간 서비스를 만들 수 있다는 것을 알았다.',
+      '웹서버와 파이썬 프레임워크 사이에서 통신하기 위해서 미들웨어가 필요하다는 것을 알았고, WSGI로 Gunicorn, uWSGI 등이 있다.',
+      '빠르게 API를 만들기 위해 django-ninja 프레임워크를 사용했는데, 후에 django-rest-framework를 사용하여 좀 더 깔끔한 rest api 구조로 만들어보고 싶다.',
+      '양방향 통신을 하는 WebSocket을 이용한다면 실시간 서비스를 만들 수 있다.',
       'Django에서 기본으로 제공하는 서비스가 편리했다. (유저, 인증, 어드민 등)',
     ],
+    website_link: 'https://www.mediwriter.co.kr',
+    requireds: [
+      '로그인이 필요한 서비스 입니다.',
+      '에디터는 사용기간 만료로 사용 할 수 없습니다.',
+    ],
+  },
+  {
+    id: 4,
+    type: 'mobile',
+    title: '투자추천서비스',
+    project_name: '투자콕',
+    summary: '주식시장 흐름을 분석하여 투자 상품을 추천해 주는 서비스',
+    stacks: ['React'],
+    stylings: ['Bookstrap', 'Styled-Components'],
+    thumbnail: Investpick0,
+    images: [Investpick1, Investpick2, Investpick3, Investpick4],
+    intro_summary:
+      '유저에게 주식시장의 흐름을 보여주고 로보어드바이저가 선별한 투자 상품을 제공하는 서비스입니다.',
+    intros: [
+      '주식시장의 흐름과 섹터, 토픽, 뉴스, 업종 등 분석 및 제공',
+      '자체 분석한 펀드상품 제공',
+      '종목 검색 및 종목별 분석정보 제공',
+    ],
+    date_range: '2020.11 ~ 2021.03',
+    positions: ['프론트엔드', '퍼블리싱'],
+    front_stacks: ['React'],
+    state_manages: ['SWR', 'Context API'],
+    collaboration_tools: ['Zeplin', 'MS Teams'],
+    purposes: [
+      '실무 코드 학습 및 업무능률 향상',
+      '유지 보수 용이한 컴포넌트 구조 고민',
+      '에러 대처 능력 향상',
+    ],
+    learing_summary:
+      '처음 입사하여 진행한 프로젝트로, 프론트엔드 개발의 모든 것을 배우고 적용해 볼 수 있는 프로젝트였습니다.',
+    learnings: [
+      '컴포넌트 내부에 로직을 추가하면 확장성이 떨어지는 컴포넌트가 된다. (컴포넌트는 데이터를 보여주는 용도로만 쓰자)',
+      '모바일 어플리케이션은 Webview로 브라우저를 띄워서 보여 줄 수 있고 앱스토어 업데이트 대응에 용이하다.',
+      '차트 라이브러리(Echarts)를 이용하여 line, pie, scatter, treemap 등 다양한 차트를 개발했다.',
+      '렌더링 최적화를 하지 않는다면 매끈한 화면(특히 차트)을 보여줄 수 없다',
+      'Android환경과 IOS환경이 달라서, 항상 둘 다 테스트를 해야 한다.',
+    ],
+    website_link: 'https://www.ibigtree.kr/products/investpick',
+    requireds: ['2022년까지 관리된 앱서비스 입니다.'],
   },
 ];

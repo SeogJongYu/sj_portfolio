@@ -2,6 +2,7 @@ import {useState} from 'react';
 import {HTMLMotionProps, Variants, motion} from 'framer-motion';
 import {BsArrowRight} from 'react-icons/bs';
 import _ from 'lodash';
+import classNames from 'classnames';
 
 import {projectInfos} from '~/data/project';
 import {SectionWithMotion} from '~/pages/home/Home';
@@ -46,12 +47,17 @@ function ProjectCard({projectInfo}: {projectInfo: ProjectInfo}) {
         <div className="col-span-10 md:col-span-4">
           <img
             src={projectInfo.thumbnail}
-            className="rounded"
+            className={classNames('rounded', {
+              'w-1/2 mx-auto': projectInfo.type === 'mobile',
+              'w-full': projectInfo.type === 'desktop',
+            })}
             alt="프로젝트 썸네일"
           />
         </div>
         <div className="col-span-10 md:col-span-6 flex flex-col mt-2 md:mt-0">
-          <h3 className="mb-2 text-white text-lg">{projectInfo.title}</h3>
+          <h3 className="mb-2 text-white text-lg text-center md:text-left">
+            {projectInfo.title}
+          </h3>
           <p className="text-main-gray text-sm mb-4">{projectInfo.summary}</p>
           <h4 className="text-white font-babes tracking-wide">Tech Stack:</h4>
           <ul className="text-sm text-main-gray">

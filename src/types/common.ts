@@ -1,5 +1,6 @@
 export interface ProjectInfo {
   id: number;
+  type: 'desktop' | 'mobile';
   title: string;
   project_name: string;
   summary: string;
