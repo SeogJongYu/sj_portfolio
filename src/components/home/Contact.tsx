@@ -76,6 +76,15 @@ export default function Contact({sectionMotions}: ContactProps) {
             </span>
           </li>
         </ContactUl>
+        <div className="mt-4 text-right">
+          <a
+            href="https://github.com/SeogJongYu/sj_portfolio"
+            target="_blank"
+            className="inline-block bg-[#465981] hover:bg-[#4f6591] text-white font-bold text-xs px-5 py-2 rounded-full transition-all"
+            rel="noreferrer">
+            포트폴리오 저장소 보기
+          </a>
+        </div>
       </div>
     </SectionWithMotion>
   );
