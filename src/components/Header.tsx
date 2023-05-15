@@ -46,7 +46,7 @@ export default function Header() {
           </SocialIconLi>
           <SocialIconLi>
             <a
-              href="https://https://www.instagram.com/mni_sj/"
+              href="https://www.instagram.com/mni_sj/"
               target="_blank"
               rel="noreferrer">
               <AiOutlineInstagram />

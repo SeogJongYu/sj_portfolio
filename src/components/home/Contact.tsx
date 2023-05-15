@@ -1,5 +1,12 @@
 import {HTMLMotionProps} from 'framer-motion';
-import {useRef} from 'react';
+import tw, {styled, css} from 'twin.macro';
+import {
+  AiOutlineMail,
+  AiOutlinePhone,
+  AiFillGithub,
+  AiOutlineLinkedin,
+  AiOutlineInstagram,
+} from 'react-icons/ai';
 
 import {SectionWithMotion} from '~/pages/home/Home';
 
@@ -7,38 +14,68 @@ interface ContactProps {
   sectionMotions?: HTMLMotionProps<'section'>;
 }
 
-export default function Contact({sectionMotions}: ContactProps) {
-  const scrollRef = useRef<HTMLDivElement | null>(null);
+const ContactUl = styled.ul(() => [
+  css`
+    li {
+      ${tw`mb-2 flex items-center`}
+    }
+    li > svg {
+      ${tw`text-xl mr-3 text-white`}
+    }
+    li > span > a {
+      ${tw`underline underline-offset-2`}
+    }
+  `,
+]);
 
+export default function Contact({sectionMotions}: ContactProps) {
   return (
     <SectionWithMotion {...sectionMotions} id="contact">
       <h2>Contact</h2>
       <div className="text-main-gray">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt
-        voluptatibus natus corporis magnam nobis! Nemo deleniti dignissimos
-        cupiditate, cumque, possimus expedita optio molestias explicabo
-        molestiae natus enim, ipsam nulla eligendi.
-        <br />
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt
-        voluptatibus natus corporis magnam nobis! Nemo deleniti dignissimos
-        cupiditate, cumque, possimus expedita optio molestias explicabo
-        molestiae natus enim, ipsam nulla eligendi.
-        <br />
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt
-        voluptatibus natus corporis magnam nobis! Nemo deleniti dignissimos
-        cupiditate, cumque, possimus expedita optio molestias explicabo
-        molestiae natus enim, ipsam nulla eligendi.
-        <br />
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt
-        voluptatibus natus corporis magnam nobis! Nemo deleniti dignissimos
-        cupiditate, cumque, possimus expedita optio molestias explicabo
-        molestiae natus enim, ipsam nulla eligendi.
-        <br />
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt
-        voluptatibus natus corporis magnam nobis! Nemo deleniti dignissimos
-        cupiditate, cumque, possimus expedita optio molestias explicabo
-        molestiae natus enim, ipsam nulla eligendi.
-        <br />
+        <ContactUl>
+          <li>
+            <AiOutlineMail />
+            <span>seogjongyu@gmail.com</span>
+          </li>
+          <li>
+            <AiOutlinePhone />
+            <span>010-7661-5589</span>
+          </li>
+          <li>
+            <AiFillGithub />
+            <span>
+              <a
+                href="https://github.com/SeogJongYu"
+                target="_blank"
+                rel="noreferrer">
+                https://github.com/SeogJongYu
+              </a>
+            </span>
+          </li>
+          <li>
+            <AiOutlineInstagram />
+            <span>
+              <a
+                href="https://www.instagram.com/mni_sj/"
+                target="_blank"
+                rel="noreferrer">
+                https://www.instagram.com/mni_sj/
+              </a>
+            </span>
+          </li>
+          <li>
+            <AiOutlineLinkedin />
+            <span>
+              <a
+                href="https://www.linkedin.com/in/seogjong-yu-37510b206/"
+                target="_blank"
+                rel="noreferrer">
+                https://www.linkedin.com/in/seogjong-yu-37510b206/
+              </a>
+            </span>
+          </li>
+        </ContactUl>
       </div>
     </SectionWithMotion>
   );

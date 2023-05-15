@@ -18,6 +18,7 @@ import Investpick2 from '~/assets/image/projects/investpick_2.jpg';
 import Investpick3 from '~/assets/image/projects/investpick_3.jpg';
 import Investpick4 from '~/assets/image/projects/investpick_4.jpg';
 import Expert0 from '~/assets/image/projects/expert_0.png';
+import Pacific0 from '~/assets/image/projects/pacific_0.png';
 import {ProjectInfo} from '~/types/common';
 
 export const projectInfos: ProjectInfo[] = [
@@ -42,6 +43,7 @@ export const projectInfos: ProjectInfo[] = [
     ],
     date_range: '2023.01 ~ 2023.04',
     positions: ['프론트엔드', '퍼블리싱', '배포'],
+    app_types: ['Web'],
     front_stacks: ['React', 'Typescript'],
     stylings: ['Tailwindcss', 'Emotion', 'twin.macro'],
     state_manages: ['React-Query', 'Recoil'],
@@ -85,6 +87,7 @@ export const projectInfos: ProjectInfo[] = [
     ],
     date_range: '2022.06 ~ 2022.12 / 2023.03 ~ 2023.04',
     positions: ['프론트엔드'],
+    app_types: ['Web'],
     front_stacks: ['Vue3', 'Typescript'],
     state_manages: ['Vuex'],
     bundlers: ['Vite'],
@@ -131,6 +134,7 @@ export const projectInfos: ProjectInfo[] = [
     ],
     date_range: '2022.09 ~ 2022.12',
     positions: ['프론트엔드', '백엔드', '퍼블리싱', 'DB설계', '배포'],
+    app_types: ['Web'],
     front_stacks: ['React', 'Typescript'],
     back_stacks: ['Django', 'Python', 'Django-Ninja'],
     stylings: ['Tailwindcss'],
@@ -162,6 +166,39 @@ export const projectInfos: ProjectInfo[] = [
   {
     id: 4,
     type: 'desktop',
+    title: '뉴스분석서비스',
+    project_name: 'Pacific Analyzer',
+    summary: '크롤링한 세계 뉴스를 자연어 분석 후 시각화하여 제공하는 서비스',
+    stacks: ['React', 'Typescript'],
+    thumbnail: Pacific0,
+    intro_summary:
+      '세계 뉴스를 크롤링 하여 자연어 분석 후 인물, 회사, 키워드를 도출하여 각종 차트로 보여주는 서비스입니다.',
+    intros: [
+      '일간, 주간, 월간 떠오르는 키워드 제공',
+      '분석된 키워드의 언급횟수와 특정 종목의 주가를 비교하여 기간별 상관관계 비교',
+      '키워드 상세 분석 정보를 네트워크 차트를 통해 시각화하여 제공',
+    ],
+    date_range: '2022.02 ~ 2022.04',
+    app_types: ['Web'],
+    positions: ['프론트엔드', 'API 데이터구조 설계'],
+    front_stacks: ['React', 'Typescript'],
+    state_manages: ['React-Query', 'Recoil'],
+    collaboration_tools: ['MS Teams'],
+    purposes: [
+      'Highcharts Stock과 별도 가공데이터 조합해서 비교분석 가능 차트 만들기',
+      '대용량 데이터를 네트워크 차트에 매끄럽게 렌더링하기',
+      'API 구조 설계',
+    ],
+    learing_summary:
+      '처음으로 대용량 데이터를 다뤄본 프로젝트입니다. 렌더링 이슈와 가독성이 떨어지는 문제를 해결하기 위해 많은 고민을 했고, 직접 API 데이터를 설계하여 백엔드 역할도 경험해 볼 수 있었습니다.',
+    learnings: [
+      '네트워크 차트에는 너무 많은 이벤트(tap, mouseover, mouseout, createCore, wordcloudClick 등)가 있었고, 연동된 컴포넌트(Wordcloud, 연관뉴스리스트)가 많았다.\n이 이벤트들을 별도의 Hook으로 분리하여(useNetworkChart) 로직은 hook에서 관리하고 컴포넌트에서는 해당 이벤트를 가져다 쓰기만 하면 되어 가독성과 유지보수성이 좋아졌다.',
+      '분석된 키워드도 많았는데, 그에 매칭된 뉴스도 상당량이어서 첫 화면 렌더링 시간이 30초 이상 걸렸었다. 그래서 화면에서 바로 보이지 않아도 되는 뉴스 데이터는 제거하고 뉴스 타이틀을 클릭 시 해당 뉴스 정보를 가져오는 식으로 api를 재설계하여 렌더링 시간을 60% 이상 단축시켰다. (30초 => 10초)',
+    ],
+  },
+  {
+    id: 5,
+    type: 'desktop',
     title: '투자추천서비스 전문가용',
     project_name: 'Investpick Expert',
     summary:
@@ -170,33 +207,36 @@ export const projectInfos: ProjectInfo[] = [
     stylings: ['Tailwindcss'],
     thumbnail: Expert0,
     intro_summary:
-      '로보어드바이저가 선별한 미국 투자 상품을 선별하여 추천하는 서비스입니다.',
+      '로보어드바이저가 선별한 미국 투자 상품을 추천해주고 각종 차트로 시각화하여 제공하는 서비스입니다.',
     intros: [
       '주식시장의 흐름과 섹터, 업종별 ETF 상품 분석 및 선별',
       '원하는 상품을 각각 선택 후 시각화 형태로 비교',
     ],
-    date_range: '2022.01 ~ 2022.03',
-    positions: ['프론트엔드', '퍼블리싱', '디자인', 'API 데이터 설계'],
+    date_range: '2021.10 ~ 2022.01',
+    app_types: ['Web'],
+    positions: [
+      '프론트엔드',
+      '퍼블리싱',
+      '디자인',
+      '기획',
+      'API 데이터구조 설계',
+    ],
     front_stacks: ['React', 'Typescript'],
     state_manages: ['React-Query', 'Recoil'],
     collaboration_tools: ['MS Teams'],
     purposes: [
-      '실무 코드 학습 및 업무능률 향상',
-      '유지 보수 용이한 컴포넌트 구조 고민',
-      '에러 대처 능력 향상',
+      '프론트 개발 이외에 디자인 선정부터 기획까지 직접 참여',
+      '대시보드 형태의 레이아웃 well-made 구조 고민',
     ],
     learing_summary:
-      '처음 입사하여 진행한 프로젝트로, 프론트엔드 개발의 모든 것을 배우고 적용해 볼 수 있는 프로젝트였습니다.',
+      '프로젝트의 기획, 디자인선정, 개발 모두 참여하면서 많은 소통이 있었던 프로젝트 였습니다.',
     learnings: [
-      '컴포넌트 내부에 로직을 추가하면 확장성이 떨어지는 컴포넌트가 된다. (컴포넌트는 데이터를 보여주는 용도로만 쓰자)',
-      '모바일 어플리케이션은 Webview로 브라우저를 띄워서 보여 줄 수 있고 앱스토어 업데이트 대응에 용이하다.',
-      '차트 라이브러리(Echarts)를 이용하여 line, pie, scatter, treemap 등 다양한 차트를 개발했다.',
-      '렌더링 최적화를 하지 않는다면 매끈한 화면(특히 차트)을 보여줄 수 없다',
-      'Android환경과 IOS환경이 달라서, 항상 둘 다 테스트를 해야 한다.',
+      'Typescript를 본격적으로 쓰기 시작한 프로젝트로, 각종 타입형태에 대해 배우며 알아갔고, 타입에러 핸들링을 하는 방법을 배웠다.',
+      'Tailwindcss기반의 무료 템플릿을 가져와 수정하여 빠르게 잘 만들어진 화면 레이아웃을 구성할 수 있었다.',
     ],
   },
   {
-    id: 5,
+    id: 6,
     type: 'mobile',
     title: '투자추천서비스',
     project_name: '투자콕',
@@ -213,8 +253,9 @@ export const projectInfos: ProjectInfo[] = [
       '종목 검색 및 종목별 분석정보 제공',
     ],
     date_range: '2020.11 ~ 2021.03',
-    positions: ['프론트엔드', '퍼블리싱'],
-    front_stacks: ['React'],
+    positions: ['프론트엔드(only react)', '퍼블리싱'],
+    app_types: ['Mobile WebView'],
+    front_stacks: ['React', 'React-Native'],
     state_manages: ['SWR', 'Context API'],
     collaboration_tools: ['Zeplin', 'MS Teams'],
     purposes: [
@@ -226,10 +267,9 @@ export const projectInfos: ProjectInfo[] = [
       '처음 입사하여 진행한 프로젝트로, 프론트엔드 개발의 모든 것을 배우고 적용해 볼 수 있는 프로젝트였습니다.',
     learnings: [
       '컴포넌트 내부에 로직을 추가하면 확장성이 떨어지는 컴포넌트가 된다. (컴포넌트는 데이터를 보여주는 용도로만 쓰자)',
-      '모바일 어플리케이션은 Webview로 브라우저를 띄워서 보여 줄 수 있고 앱스토어 업데이트 대응에 용이하다.',
+      '모바일 앱은 Webview로 브라우저를 띄워서 보여 줄 수 있고 앱스토어 업데이트 대응에 용이하다.',
       '차트 라이브러리(Echarts)를 이용하여 line, pie, scatter, treemap 등 다양한 차트를 개발했다.',
       '렌더링 최적화를 하지 않는다면 매끈한 화면(특히 차트)을 보여줄 수 없다',
-      'Android환경과 IOS환경이 달라서, 항상 둘 다 테스트를 해야 한다.',
     ],
     website_link: 'https://www.ibigtree.kr/products/investpick',
     requireds: ['2022년까지 관리된 앱서비스 입니다.'],

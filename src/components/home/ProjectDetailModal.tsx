@@ -34,7 +34,7 @@ const CommonUl = styled.ul(() => [
   tw`list-disc pl-3 text-sm`,
   css`
     li {
-      ${tw`mb-1`}
+      ${tw`mb-1 whitespace-pre-line`}
     }
   `,
 ]);
@@ -140,16 +140,16 @@ export default function ProjectDetailModal({
                 <span>{projectInfo.date_range}</span>
               </li>
             )}
+            {projectInfo?.app_types && (
+              <li>
+                <h4>형태</h4>
+                <span>{projectInfo.app_types.join(', ')}</span>
+              </li>
+            )}
             {projectInfo?.positions && (
               <li>
                 <h4>역할</h4>
                 <span>{projectInfo.positions.join(', ')}</span>
-              </li>
-            )}
-            {projectInfo?.languages && (
-              <li>
-                <h4>언어</h4>
-                <span>{projectInfo.languages.join(', ')}</span>
               </li>
             )}
             {projectInfo?.front_stacks && (

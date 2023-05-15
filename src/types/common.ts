@@ -11,7 +11,7 @@ export interface ProjectInfo {
   intros?: string[];
   date_range?: string;
   positions?: string[];
-  languages?: string[];
+  app_types?: string[];
   front_stacks?: string[];
   back_stacks?: string[];
   stylings?: string[];
