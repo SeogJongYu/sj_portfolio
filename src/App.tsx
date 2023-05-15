@@ -1,5 +1,5 @@
 import {ReactNode} from 'react';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import {Routes, Route, HashRouter} from 'react-router-dom';
 import {QueryClient, QueryClientProvider} from 'react-query';
 
 import './App.scss';
@@ -10,11 +10,11 @@ import Home from './pages/home/Home';
 function App() {
   return (
     <Providers>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </Providers>
   );
 }

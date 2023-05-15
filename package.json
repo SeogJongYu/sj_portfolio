@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage": "https://seogjongyu.github.io/sj_portfolio/",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack serve --config webpack.dev.js --progress",
     "build": "cross-env NODE_ENV=production webpack --config webpack.prod.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "cross-env eslint ./src"
+    "lint": "cross-env eslint ./src",
+    "deploy": "gh-pages -d build"
   },
   "keywords": [],
   "author": "",
@@ -64,6 +66,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.1",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "gh-pages": "^5.0.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.7.2",
     "postcss": "^8.4.21",
