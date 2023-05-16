@@ -178,7 +178,7 @@ export default function ProjectDetailModal({
             )}
             {projectInfo?.bundlers && (
               <li>
-                <h4>번들러</h4>
+                <h4>빌드</h4>
                 <span>{projectInfo.bundlers.join(', ')}</span>
               </li>
             )}

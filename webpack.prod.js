@@ -12,7 +12,7 @@ module.exports = merge(common, {
   output: {
     filename: '[name].[contenthash].js',
     path: path.join(__dirname, '/build'),
-    publicPath: '/',
+    publicPath: './',
     clean: true,
   },
   module: {

@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import React, {ReactNode} from 'react';
 import {Routes, Route, HashRouter} from 'react-router-dom';
 import {QueryClient, QueryClientProvider} from 'react-query';
 
@@ -9,13 +9,15 @@ import Home from './pages/home/Home';
 
 function App() {
   return (
-    <Providers>
-      <HashRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </HashRouter>
-    </Providers>
+    <React.StrictMode>
+      <Providers>
+        <HashRouter>
+          <Routes>
+            <Route path="" element={<Home />} />
+          </Routes>
+        </HashRouter>
+      </Providers>
+    </React.StrictMode>
   );
 }
 

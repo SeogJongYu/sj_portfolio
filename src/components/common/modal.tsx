@@ -2,7 +2,7 @@ import tw, {styled, css} from 'twin.macro';
 import classNames from 'classnames';
 import {HTMLAttributes, useEffect, useRef} from 'react';
 import {TiDelete} from 'react-icons/ti';
-import {useClickAway, useLockBodyScroll, useToggle} from 'react-use';
+import {useClickAway} from 'react-use';
 import {motion} from 'framer-motion';
 
 import Portal from './Portal';
@@ -30,16 +30,36 @@ export interface ModalBodyProps {
 
 export function ModalBody({onClose, className, children}: ModalBodyProps) {
   const layerRef = useRef<HTMLDivElement | null>(null);
-  const [locked, toggleLocked] = useToggle(false);
-
-  useLockBodyScroll(locked);
+  const contentRef = useRef<HTMLDivElement | null>(null);
 
   useClickAway(layerRef, () => {
     onClose();
   });
 
-  useEffect(() => toggleLocked(), [toggleLocked]);
+  useEffect(() => {
+    document.body.classList.add('overflow-y-hidden');
+    return () => {
+      document.body.classList.remove('overflow-y-hidden');
+    };
+  }, []);
 
+  useEffect(() => {
+    const content = contentRef.current;
+
+    if (!content) {
+      return;
+    }
+
+    content.addEventListener('scroll', e => {
+      e.stopPropagation();
+    });
+
+    return () => {
+      content.removeEventListener('scroll', e => {
+        e.stopPropagation();
+      });
+    };
+  }, []);
   return (
     <Portal>
       <FullBackdrop>
@@ -54,7 +74,9 @@ export function ModalBody({onClose, className, children}: ModalBodyProps) {
               onClick={onClose}>
               <TiDelete className="text-white text-3xl" />
             </button>
-            <div className="min-h-[500px] max-h-[85vh] overflow-y-auto">
+            <div
+              className="min-h-[500px] max-h-[80vh] overflow-y-scroll"
+              ref={contentRef}>
               <div className="flex-1">{children}</div>
             </div>
           </div>
