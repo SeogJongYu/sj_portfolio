@@ -209,16 +209,20 @@ export default function ProjectDetailModal({
             ))}
           </CommonUl>
         </ProjectSection>
-        {projectInfo?.learing_summary && projectInfo?.learnings && (
+        {(projectInfo?.learing_summary || projectInfo?.learnings) && (
           <ProjectSection title="러닝포인트">
-            <div className="text-sm whitespace-pre-line mb-4">
-              {projectInfo.learing_summary}
-            </div>
-            <CommonUl>
-              {projectInfo.learnings.map((learing, index) => (
-                <li key={index}>{learing}</li>
-              ))}
-            </CommonUl>
+            {projectInfo?.learing_summary && (
+              <div className="text-sm whitespace-pre-line mb-4">
+                {projectInfo.learing_summary}
+              </div>
+            )}
+            {projectInfo?.learnings && (
+              <CommonUl>
+                {projectInfo?.learnings.map((learing, index) => (
+                  <li key={index}>{learing}</li>
+                ))}
+              </CommonUl>
+            )}
           </ProjectSection>
         )}
         {projectInfo.website_link && (

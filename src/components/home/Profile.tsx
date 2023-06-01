@@ -1,7 +1,7 @@
 import {Variants, motion} from 'framer-motion';
 import {GrReactjs} from 'react-icons/gr';
-import {DiDjango} from 'react-icons/di';
-import {SiAmazonec2} from 'react-icons/si';
+// import {DiDjango} from 'react-icons/di';
+// import {SiAmazonec2} from 'react-icons/si';
 
 import {SectionWithMotion} from '~/pages/home/Home';
 import {ReactComponent as Typescript} from '~/assets/image/skills/typescript.svg';
@@ -52,17 +52,19 @@ export default function Profile() {
           </span>
         </h2>
         <p className="text-main-gray mt-4 tracking-wide">
-          안녕하세요! 3년차 프론트엔드 개발자 유석종 입니다. 투자추천서비스
-          스타트업에서 개발을 시작했고, 모바일, 웹페이지 화면을 개발했습니다.
+          3년 차 웹 개발자로 스타트업의 웹, 앱서비스 프론트를 개발했고 주로
+          React와 Typescript를 사용했습니다. 개발과 함께 퍼블리싱도 병행했으며,
+          투자분석 서비스 프론트의 모든 부분을 개발하여 구독 상품을 출시한
+          경험이 있습니다.
           <br />
           <br />
-          확장성, 가독성있는 코드를 구성하기 위해 고민하는 것과 팀원들과 새로운
-          기술을 알아가는 것을 좋아합니다.
+          개인 시간을 이용해 사이드 프로젝트 진행하는 것을 좋아하고, 기술에 관한
+          새로운 정보를 얻고 공유하는 것을 좋아합니다.
         </p>
       </div>
       <div className="mt-10">
         <h3 className="text-xl text-white text-center font-header font-bold">
-          SKILLS
+          Frontend
         </h3>
         <motion.ul
           variants={boxVariants}
@@ -85,6 +87,47 @@ export default function Profile() {
       </div>
       <div className="mt-10">
         <h3 className="text-xl text-white text-center font-header font-bold">
+          State-Management
+        </h3>
+        <motion.ul
+          variants={boxVariants}
+          initial="out"
+          animate="in"
+          className="flex justify-center gap-x-4 text-main-gray mt-2">
+          <motion.li variants={iconVariants}>Recoil</motion.li>
+          <motion.li variants={iconVariants}>React-Query</motion.li>
+          <motion.li variants={iconVariants}>Context-API</motion.li>
+          <motion.li variants={iconVariants}>Vuex</motion.li>
+        </motion.ul>
+      </div>
+      <div className="mt-10">
+        <h3 className="text-xl text-white text-center font-header font-bold">
+          Styling
+        </h3>
+        <motion.ul
+          variants={boxVariants}
+          initial="out"
+          animate="in"
+          className="flex justify-center gap-x-4 text-main-gray mt-2">
+          <motion.li variants={iconVariants}>Tailwindcss</motion.li>
+          <motion.li variants={iconVariants}>Emotion</motion.li>
+          <motion.li variants={iconVariants}>Styled-Component</motion.li>
+        </motion.ul>
+      </div>
+      <div className="mt-10">
+        <h3 className="text-xl text-white text-center font-header font-bold">
+          Bundler
+        </h3>
+        <motion.ul
+          variants={boxVariants}
+          initial="out"
+          animate="in"
+          className="flex justify-center gap-x-4 text-main-gray mt-2">
+          <motion.li variants={iconVariants}>Webpack</motion.li>
+        </motion.ul>
+      </div>
+      {/* <div className="mt-10">
+        <h3 className="text-xl text-white text-center font-header font-bold">
           EXPERIENCED SKILLS
         </h3>
         <motion.ul
@@ -99,7 +142,7 @@ export default function Profile() {
             <SiAmazonec2 className="w-12 h-auto text-[#FF9900]" title="EC2" />
           </motion.li>
         </motion.ul>
-      </div>
+      </div> */}
     </SectionWithMotion>
   );
 }
